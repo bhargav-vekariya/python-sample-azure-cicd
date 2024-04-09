@@ -55,7 +55,9 @@ stages:
   - deployment: Deploy
     displayName: Deploy
     pool:
-      vmImage: $(vmImageName)
+      name: local-linux
+      demands:
+       - agent.name -equals linux
     environment: 'bhargavvekariyapythonsampleazurecicd.dev'
     strategy:
       runOnce:
